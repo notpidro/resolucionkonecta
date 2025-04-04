@@ -13,9 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Necesario para que se clone el repositorio completo
+          fetch-depth: 0  # Necesario para que gh-pages encuentre el remote origin
 
-      - name: Setup Node.js
+      - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18.x'
@@ -29,5 +29,5 @@ jobs:
 
       - name: Deploy to GitHub Pages
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx gh-pages -d build --repo=https://${GITHUB_ACTOR}:${GH_TOKEN}@github.com/notpidro/resolucionkonecta.git
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run deploy
