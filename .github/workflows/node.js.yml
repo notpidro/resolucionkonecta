@@ -1,5 +1,8 @@
 name: Deploy to GitHub Pages
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
@@ -13,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Necesario para que se clone el repositorio completo
+          fetch-depth: 0  # Clona todo el historial, necesario para gh-pages
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
