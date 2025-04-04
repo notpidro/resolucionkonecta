@@ -1,0 +1,289 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+	height: 100%;
+	font-family: Arial, sans-serif;
+}
+
+/* FONDO GRADIENTE */
+.App {
+	min-height: 100%;
+	background: #2a01c2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.header {
+	position: relative;
+	text-align: center;
+	min-width: 100%;
+}
+
+.App-logo {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	width: 50px;
+	height: auto;
+}
+
+.bubble-header {
+	color: #fff;
+	text-align: center;
+	display: block;
+	margin: 0 auto;
+	margin-top: 100px;
+	font-family: "Kanit", sans-serif;
+	font-weight: 700;
+	font-size: 3rem;
+}
+
+/* CONTENEDOR PRINCIPAL DEL FORMULARIO */
+.form-container {
+	margin-top: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+}
+
+/* BURBUJAS GENÉRICAS */
+.bubble {
+	background: #0e134d;
+	border-radius: 30px;
+	padding: 15px 20px;
+	color: #fff;
+	text-align: center;
+	min-width: 300px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	justify-content: center;
+}
+
+/* Burbujas que contienen inputs */
+.input-bubble {
+	align-items: flex-start; /* etiqueta arriba, input abajo */
+}
+.input-bubble label {
+	margin-bottom: 5px;
+	font-weight: bold;
+	font-size: 1rem;
+}
+.input-bubble input {
+	width: 100%;
+	padding: 8px;
+	border: none;
+	border-radius: 20px;
+	outline: none;
+	font-size: 1rem;
+	text-align: center;
+}
+
+/* BURBUJA: ¿Enviaste Service? */
+.question-bubble p {
+	margin-bottom: 10px;
+	font-weight: bold;
+	font-size: 1.1rem;
+}
+.circle-buttons {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+.circle-buttons label {
+	cursor: pointer;
+}
+/* Botones circulares SI/NO */
+.circle {
+	width: 70px;
+	height: 50px;
+	border-radius: 40%;
+	background: gray;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+	font-weight: bold;
+	transition: transform 0.2s;
+}
+.circle:hover {
+	transform: scale(1.1);
+}
+.green {
+	background: #00c853;
+}
+.red {
+	background: #ff5252;
+}
+/* Ocultamos el radio real y aplicamos estilo al contenedor */
+.circle-buttons input {
+	display: none;
+}
+.circle-buttons input:checked + .circle {
+	outline: 2px solid yellow;
+	outline-offset: 2px;
+}
+
+/* TODOS LOS ICONOS */
+.icon {
+	padding: 10px;
+}
+
+/* 3 BOTONES NEGROS (FLOW, INTERNET, CATV) */
+.black-buttons {
+	display: flex;
+	gap: 10px;
+}
+.black-button {
+	background: #000;
+	color: #fff;
+	border-radius: 10px;
+	padding: 10px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	width: 250px;
+	justify-content: center;
+	text-align: center;
+	transition: transform 0.2s;
+	font-weight: bold;
+}
+/* Crecemos un poco al hover */
+.black-button:hover {
+	transform: scale(1.05);
+}
+/* Ocultamos el radio real */
+.black-button input {
+	display: none;
+}
+/* Remueve la regla que oculta el input dentro de .black-button ya que ahora están fuera */
+input[type="radio"] {
+	display: none;
+}
+
+/* Aplica el outline al label cuando el input adyacente esté checked */
+input[type="radio"]:checked + .black-button {
+	outline: 2px solid yellow;
+	outline-offset: 2px;
+}
+
+.icon {
+	font-size: 1.2rem;
+}
+.text {
+	font-size: 0.9rem;
+	line-height: 1.2;
+}
+
+/* BURBUJA: POSIBLE MASIVO */
+.masivo-bubble {
+	background: transparent;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	text-align: center;
+	padding: 0;
+	width: 200px; /* Aseguramos la unidad px */
+}
+
+.masivo-bubble label {
+	background: #ff5252; /* naranja */
+	border-radius: 30px;
+	padding: 10px 20px;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center; /* Centra el contenido dentro del label */
+	gap: 10px;
+	width: 100%;
+	color: #fff;
+	font-weight: bold;
+}
+
+/* Nuevo: centramos el contenido interno de la burbuja */
+.masivo-bubble .masivo-content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	width: 100%;
+}
+
+.masivo-bubble input {
+	display: none;
+}
+
+.masivo-bubble input {
+	display: none;
+}
+
+/* Aplica el outline al label cuando el input adyacente esté marcado */
+.masivo-bubble input:checked + label {
+	outline: 2px solid yellow;
+	outline-offset: 2px;
+}
+
+.warning-icon {
+	font-size: 1.2rem;
+}
+
+/* BURBUJA: N° OT */
+.ot-bubble {
+	align-items: center;
+	flex-direction: row;
+	justify-content: flex-start;
+	min-width: 300px;
+	background: #0d3b70;
+}
+.ot-bubble .bubble-label {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	margin-right: 10px;
+	font-weight: bold;
+}
+.ot-icon {
+	color: #ff0;
+	font-weight: bold;
+}
+.ot-bubble input {
+	flex: 1;
+	padding: 8px;
+	border: none;
+	border-radius: 20px;
+	outline: none;
+	font-size: 1rem;
+	background: #052850;
+	color: #fff;
+	text-align: center;
+}
+
+/* BOTÓN ENVIAR */
+.enviar-button {
+	background: #00c853; /* verde */
+	color: #fff;
+	font-weight: bold;
+	border-radius: 30px;
+	padding: 10px 30px;
+	font-size: 1.2rem;
+	cursor: pointer;
+	border: none;
+	transition: transform 0.2s;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	justify-content: center;
+}
+.enviar-button:hover {
+	transform: scale(1.05);
+}
