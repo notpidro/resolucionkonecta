@@ -2,7 +2,7 @@
   "name": "resolucion-konecta",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://resolucionkonecta.netlify.app/",
+  "homepage": "https://notpidro.github.io/resolucionkonecta/",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
