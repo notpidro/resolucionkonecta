@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.16aa6eb1.css",
-    "main.js": "/static/js/main.21410d0e.js",
-    "static/js/453.7cb0a03d.chunk.js": "/static/js/453.7cb0a03d.chunk.js",
-    "static/media/logo-small-CQeKgnf2.svg": "/static/media/logo-small-CQeKgnf2.0911405d31e3fb09c7501134c39c8385.svg",
-    "index.html": "/index.html",
-    "static/media/audio_video_receiver_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg": "/static/media/audio_video_receiver_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.3e0a0aa96c69d965c1023a50ff958590.svg",
-    "static/media/construction_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg": "/static/media/construction_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.e8811a324fd02f5d2cfdc537f5663516.svg",
-    "static/media/play_circle_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg": "/static/media/play_circle_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.14034af78a4fb93e7ea47c3f94210807.svg",
-    "static/media/wifi_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg": "/static/media/wifi_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.7b00bd442cd5b84c0672df24913df1a8.svg",
-    "static/media/warning_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg": "/static/media/warning_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.7831baa98f3c8218ab4b021796b6f7b8.svg",
-    "main.16aa6eb1.css.map": "/static/css/main.16aa6eb1.css.map",
-    "main.21410d0e.js.map": "/static/js/main.21410d0e.js.map",
-    "453.7cb0a03d.chunk.js.map": "/static/js/453.7cb0a03d.chunk.js.map"
+    "main.css": "/resolucionkonecta/static/css/main.16aa6eb1.css",
+    "main.js": "/resolucionkonecta/static/js/main.58b515eb.js",
+    "static/js/453.7cb0a03d.chunk.js": "/resolucionkonecta/static/js/453.7cb0a03d.chunk.js",
+    "static/media/logo-small-CQeKgnf2.svg": "/resolucionkonecta/static/media/logo-small-CQeKgnf2.0911405d31e3fb09c7501134c39c8385.svg",
+    "index.html": "/resolucionkonecta/index.html",
+    "static/media/audio_video_receiver_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg": "/resolucionkonecta/static/media/audio_video_receiver_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.3e0a0aa96c69d965c1023a50ff958590.svg",
+    "static/media/construction_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg": "/resolucionkonecta/static/media/construction_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.e8811a324fd02f5d2cfdc537f5663516.svg",
+    "static/media/play_circle_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg": "/resolucionkonecta/static/media/play_circle_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.14034af78a4fb93e7ea47c3f94210807.svg",
+    "static/media/wifi_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg": "/resolucionkonecta/static/media/wifi_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.7b00bd442cd5b84c0672df24913df1a8.svg",
+    "static/media/warning_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg": "/resolucionkonecta/static/media/warning_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.7831baa98f3c8218ab4b021796b6f7b8.svg",
+    "main.16aa6eb1.css.map": "/resolucionkonecta/static/css/main.16aa6eb1.css.map",
+    "main.58b515eb.js.map": "/resolucionkonecta/static/js/main.58b515eb.js.map",
+    "453.7cb0a03d.chunk.js.map": "/resolucionkonecta/static/js/453.7cb0a03d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.16aa6eb1.css",
-    "static/js/main.21410d0e.js"
+    "static/js/main.58b515eb.js"
   ]
 }
