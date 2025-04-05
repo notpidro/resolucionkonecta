@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/resolucionkonecta/static/css/main.16aa6eb1.css",
-    "main.js": "/resolucionkonecta/static/js/main.a3894b8b.js",
+    "main.js": "/resolucionkonecta/static/js/main.10d2d6ad.js",
     "static/js/453.7cb0a03d.chunk.js": "/resolucionkonecta/static/js/453.7cb0a03d.chunk.js",
     "static/media/logo-small-CQeKgnf2.svg": "/resolucionkonecta/static/media/logo-small-CQeKgnf2.0911405d31e3fb09c7501134c39c8385.svg",
     "index.html": "/resolucionkonecta/index.html",
@@ -10,11 +10,11 @@
     "static/media/wifi_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg": "/resolucionkonecta/static/media/wifi_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.7b00bd442cd5b84c0672df24913df1a8.svg",
     "static/media/warning_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg": "/resolucionkonecta/static/media/warning_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.7831baa98f3c8218ab4b021796b6f7b8.svg",
     "main.16aa6eb1.css.map": "/resolucionkonecta/static/css/main.16aa6eb1.css.map",
-    "main.a3894b8b.js.map": "/resolucionkonecta/static/js/main.a3894b8b.js.map",
+    "main.10d2d6ad.js.map": "/resolucionkonecta/static/js/main.10d2d6ad.js.map",
     "453.7cb0a03d.chunk.js.map": "/resolucionkonecta/static/js/453.7cb0a03d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.16aa6eb1.css",
-    "static/js/main.a3894b8b.js"
+    "static/js/main.10d2d6ad.js"
   ]
 }
