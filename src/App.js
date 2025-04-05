@@ -5,174 +5,168 @@ import PlayIcon from "./assets/play_circle_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz2
 import WifiIcon from "./assets/wifi_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg";
 import CatvIcon from "./assets/audio_video_receiver_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg";
 import WarningIcon from "./assets/warning_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg";
-import RepairIcon from "./assets/construction_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg";
 
 function App() {
-  const [confirmationVisible, setConfirmationVisible] = useState(false);
-  const [uValue, setUValue] = useState("");
+	const [confirmationVisible, setConfirmationVisible] = useState(false);
+	const [uValue, setUValue] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Evita que el formulario recargue la página
+	const handleSubmit = (event) => {
+		event.preventDefault(); // Evita la recarga de la página
+		// Creamos un FormData a partir del formulario
+		const formData = new FormData(event.target);
+		// Guardamos el valor de U para poder restaurarlo después del reset
+		const currentUValue = formData.get("entry.945397952");
 
-    // Creamos un FormData a partir del formulario
-    const formData = new FormData(event.target);
-    const currentUValue = formData.get("u"); // Guardamos el valor de "U" antes de resetear
+		// Enviamos los datos a Google Forms
+		fetch(
+			"https://docs.google.com/forms/d/e/1FAIpQLSc7svaFI8ea7ys7DYzr5fGsh1Dwhg26w_kjAraIS50q3xKF9A/formResponse",
+			{
+				method: "POST",
+				body: formData,
+				mode: "no-cors",
+			}
+		)
+			.then(() => {
+				setConfirmationVisible(true);
+				// Reiniciamos el formulario
+				event.target.reset();
+				// Restauramos el valor de U (ya que el reset lo limpia)
+				setUValue(currentUValue);
+				// Ocultamos el mensaje de confirmación después de 3 segundos
+				setTimeout(() => {
+					setConfirmationVisible(false);
+				}, 3000);
+			})
+			.catch(() => {
+				alert("❌ Error al enviar la respuesta.");
+			});
+	};
 
-    // Enviamos los datos a Google Forms
-    fetch(
-      "https://docs.google.com/forms/d/e/1FAIpQLSc7svaFI8ea7ys7DYzr5fGsh1Dwhg26w_kjAraIS50q3xKF9A/formResponse",
-      {
-        method: "POST",
-        body: formData,
-        mode: "no-cors",
-      }
-    )
-      .then(() => {
-        // Mostramos el mensaje de confirmación
-        setConfirmationVisible(true);
+	return (
+		<div className="App">
+			{/* Encabezado */}
+			<header className="header">
+				<img src={logo} className="App-logo" alt="logo" />
+				<div className="bubble-header">RESOLUCIÓN EN LINEA</div>
+			</header>
 
-        // Reiniciamos el formulario
-        event.target.reset();
+			{/* Formulario */}
+			<form id="formulario" onSubmit={handleSubmit} className="form-container">
+				{/* Campo U */}
+				<div className="bubble input-bubble">
+					<input
+						type="text"
+						name="entry.945397952"
+						id="u"
+						placeholder="Ingrese U"
+						value={uValue}
+						onChange={(e) => setUValue(e.target.value)}
+						required
+					/>
+				</div>
 
-        // Restauramos el valor de "U"
-        setUValue(currentUValue);
+				{/* Botones de radio: ¿Envié Services? */}
+				<div className="bubble question-bubble">
+					<p>¿Envié SERVICES?</p>
+					<div className="circle-buttons">
+						<label>
+							<input type="radio" name="entry.1588399383" value="SI" required />
+							<div className="circle green">SI</div>
+						</label>
+						<label>
+							<input type="radio" name="entry.1588399383" value="NO" />
+							<div className="circle red">NO</div>
+						</label>
+					</div>
+				</div>
 
-        // Ocultamos el mensaje después de 3 segundos
-        setTimeout(() => {
-          setConfirmationVisible(false);
-        }, 3000);
-      })
-      .catch(() => {
-        alert("❌ Error al enviar la respuesta.");
-      });
-  };
+				{/* Botones para seleccionar el motivo (FLOW, INTERNET, CATV) */}
+				<div className="black-buttons">
+					<input type="radio" id="motivo1" name="entry.1054412819" value="FLOW" hidden required />
+					<label className="black-button" htmlFor="motivo1">
+						<div className="icon">
+							<img src={PlayIcon} alt="Play Icon" className="play-icon" />
+						</div>
+						<div className="text">
+							FLOW <br />
+							(DECOS)
+						</div>
+						<div className="icon">
+							<img src={PlayIcon} alt="Play Icon" className="play-icon" />
+						</div>
+					</label>
 
-  return (
-    <div className="App">
-      {/* Encabezado */}
-      <header className="header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <div className="bubble-header">RESOLUCIÓN EN LINEA</div>
-      </header>
+					<input type="radio" id="motivo2" name="entry.1054412819" value="INTERNET" hidden />
+					<label className="black-button" htmlFor="motivo2">
+						<div className="icon">
+							<img src={WifiIcon} alt="Wifi Icon" className="wifi-icon" />
+						</div>
+						<div className="text">
+							INTERNET <br />
+							(MODEMS)
+						</div>
+						<div className="icon">
+							<img src={WifiIcon} alt="Wifi Icon" className="wifi-icon" />
+						</div>
+					</label>
 
-      {/* Formulario */}
-      <form id="formulario" onSubmit={handleSubmit} className="form-container">
-        {/* Burbuja: Ingresá tu "u" */}
-        <div className="bubble input-bubble">
-          <input
-            type="text"
-            name="u"
-            id="u"
-            placeholder="Ingresa tu U"
-            value={uValue}
-            onChange={(e) => setUValue(e.target.value)}
-          />
-        </div>
+					<input type="radio" id="motivo3" name="entry.1054412819" value="CATV" hidden />
+					<label className="black-button" htmlFor="motivo3">
+						<div className="icon">
+							<img src={CatvIcon} alt="Catv Icon" className="catv-icon" />
+						</div>
+						<div className="text">
+							CATV <br />
+							(CABLE-DECOS)
+						</div>
+						<div className="icon">
+							<img src={CatvIcon} alt="Catv Icon" className="catv-icon" />
+						</div>
+					</label>
+				</div>
 
-        {/* Burbuja: ¿Enviaste Service? */}
-        <div className="bubble question-bubble">
-          <p>¿Enviaste Service?</p>
-          <div className="circle-buttons">
-            <label>
-              <input type="radio" name="service" value="SI" />
-              <div className="circle green">SI</div>
-            </label>
-            <label>
-              <input type="radio" name="service" value="NO" />
-              <div className="circle red">NO</div>
-            </label>
-          </div>
-        </div>
+				{/* Checkbox: Posible Masivo */}
+				<div className="bubble masivo-bubble">
+					<input type="checkbox" id="posibleMasivo" name="entry.689641927" value="SI" hidden />
+					<label htmlFor="posibleMasivo">
+						<div className="masivo-content">
+							<div className="icon">
+								<img src={WarningIcon} alt="Warning Icon" className="warning-icon" />
+							</div>
+							<div className="text">POSIBLE MASIVO</div>
+							<div className="icon">
+								<img src={WarningIcon} alt="Warning Icon" className="warning-icon" />
+							</div>
+						</div>
+					</label>
+				</div>
 
-        {/* 3 botones negros (FLOW, INTERNET, CATV) */}
-        <div className="black-buttons">
-          <input type="radio" id="flow" name="motivo" value="FLOW" hidden />
-          <label className="black-button" htmlFor="flow">
-            <div className="icon">
-              <img src={PlayIcon} alt="Play Icon" className="play-icon" />
-            </div>
-            <div className="text">
-              FLOW
-              <br />
-              (DECOS)
-            </div>
-            <div className="icon">
-              <img src={PlayIcon} alt="Play Icon" className="play-icon" />
-            </div>
-          </label>
+				{/* Campo: Descripción (opcional) */}
+				<div className="bubble descripcion-bubble">
+					<label htmlFor="descripcion" className="bubble-label">
+						Descripción:
+					</label>
+					<textarea
+						id="descripcion"
+						name="entry.1267784291"
+						placeholder="Ingrese una breve descripción (opcional)"
+					></textarea>
+				</div>
 
-          <input type="radio" id="internet" name="motivo" value="INTERNET" hidden />
-          <label className="black-button" htmlFor="internet">
-            <div className="icon">
-              <img src={WifiIcon} alt="Wifi Icon" className="wifi-icon" />
-            </div>
-            <div className="text">
-              INTERNET
-              <br />
-              (MODEMS)
-            </div>
-            <div className="icon">
-              <img src={WifiIcon} alt="Wifi Icon" className="wifi-icon" />
-            </div>
-          </label>
+				{/* Botón ENVIAR */}
+				<button type="submit" className="bubble enviar-button">
+					<span>ENVIAR</span>
+				</button>
 
-          <input type="radio" id="catv" name="motivo" value="CATV" hidden />
-          <label className="black-button" htmlFor="catv">
-            <div className="icon">
-              <img src={CatvIcon} alt="Catv Icon" className="catv-icon" />
-            </div>
-            <div className="text">
-              CATV
-              <br />
-              (CABLE-DECOS)
-            </div>
-            <div className="icon">
-              <img src={CatvIcon} alt="Catv Icon" className="catv-icon" />
-            </div>
-          </label>
-        </div>
-
-        {/* Burbuja: Posible Masivo */}
-        <div className="bubble masivo-bubble">
-          <input type="checkbox" id="posibleMasivo" name="posibleMasivo" hidden />
-          <label htmlFor="posibleMasivo">
-            <div className="masivo-content">
-              <div className="icon">
-                <img src={WarningIcon} alt="Warning Icon" className="warning-icon" />
-              </div>
-              <div className="text">POSIBLE MASIVO</div>
-              <div className="icon">
-                <img src={WarningIcon} alt="Warning Icon" className="warning-icon" />
-              </div>
-            </div>
-          </label>
-        </div>
-
-        {/* Burbuja: N° OT */}
-        <div className="bubble ot-bubble">
-          <label htmlFor="ot" className="bubble-label">
-            <div className="icon">
-              <img src={RepairIcon} alt="Repair Icon" className="repair-icon" />
-            </div>
-            N° OT:
-          </label>
-          <input type="text" name="ot" id="ot" placeholder="J0000000000012345678" />
-        </div>
-
-        {/* Botón ENVIAR */}
-        <button type="submit" className="bubble enviar-button">
-          <span>ENVIAR</span>
-        </button>
-
-        {/* Mensaje de confirmación */}
-        {confirmationVisible && (
-          <div id="confirmationMessage" style={{ display: "block" }}>
-            ¡Respuesta enviada!
-          </div>
-        )}
-      </form>
-    </div>
-  );
+				{/* Mensaje de confirmación */}
+				{confirmationVisible && (
+					<div id="confirmationMessage" style={{ display: "block" }}>
+						¡Respuesta enviada!
+					</div>
+				)}
+			</form>
+		</div>
+	);
 }
 
 export default App;
