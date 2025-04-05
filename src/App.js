@@ -147,7 +147,7 @@ function App() {
 						Descripción:
 					</label>
 					<textarea
-						id="descripcion"
+						id="OT"
 						name="entry.1267784291"
 						placeholder="Ingrese una breve descripción (opcional)"
 					></textarea>
